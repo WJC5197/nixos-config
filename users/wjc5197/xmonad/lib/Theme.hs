@@ -1,0 +1,9 @@
+module Theme where
+amethyst = "#8963b7"
+apricot = "#ebd3c5"
+charcoalGrey = "#373737"
+darkGrey = "#afafaf"
+darkLavender = "#5d4d7a"
+darkRed = "#940000"
+golden = "#ffd700"
+white = "#ffffff"

@@ -1,0 +1,18 @@
+              Config { 
+                 overrideRedirect = False
+               , font = "Iosevka"
+               , dpi = 96
+               , bgColor  = "#373737"
+               , fgColor  = "#d0d0d0"
+               , position = TopH 50
+               , commands = [ Run Cpu ["-t", "CPU: <total>%", "-L", "3", "-H", "50", "--high", "#940000", "--normal", "#13a10e"] 10
+                            , Run Battery ["-t", "Batt: <left>%", "-L", "25", "-H", "75", "-l", "#940000", "-h", "#13a10e"] 10
+                            , Run Memory ["-t", "Mem: <usedratio>%"] 10
+                            , Run Date "%a %Y-%m-%d %H:%M" "date" 10
+        					          , Run DynNetwork ["-t", "<rx>KB↓ <tx>KB↑"] 10
+                            , Run XMonadLog
+                            ]
+               , sepChar  = "%"
+               , alignSep = "}{"
+               , template = "%XMonadLog% }{ %dynnetwork% | %memory% | %battery% | %cpu% | %date% "
+               }

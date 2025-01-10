@@ -1,0 +1,12 @@
+<settings>
+    <mirrors>
+        <mirror>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <mirrorOf>central</mirrorOf>
+            <!-- 国内推荐阿里云的Maven镜像 -->
+            <url>https://maven.aliyun.com/repository/central</url>
+        </mirror>
+    </mirrors>
+</settings>
+
