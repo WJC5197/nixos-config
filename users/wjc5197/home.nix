@@ -84,6 +84,7 @@
       # '')
 
       agda
+      anki-bin
       (aspellWithDicts (
         dicts: with dicts; [
           en
@@ -97,6 +98,7 @@
       bleachbit
       blender
       blueman
+      cabal-install
       cachix
       ccache
       # clash-verge-rev
@@ -104,7 +106,7 @@
       clang-tools
       clipmenu
       clojure
-      # clojure-lsp
+      clojure-lsp
       cmake
       code-cursor
       dbeaver-bin
@@ -116,16 +118,20 @@
       dunst
       ffmpeg-full
       firejail
+      ghc
       gimp
       glew
       glfw
       goldendict-ng
+      gopls
       gparted
       gperf
       gradle
       graphviz
       gsl
       gtest
+      # haskellPackages.ghcup
+      haskell-language-server
       hledger
       hledger-web
       html-tidy
@@ -154,10 +160,13 @@
       onedrive
       plantuml
       pkg-config
+      python3
       racket-minimal
       rclone
       redshift
       rsync
+      ruff-lsp # python lsp
+      # rustlings
       rustup
       # rust-analyzer
       sbcl
@@ -173,6 +182,7 @@
       tdlib
       tokei
       tor-browser
+      translate-shell
       typescript
       typescript-language-server
       typst
@@ -289,7 +299,8 @@
     };
     # opam = {
     #   enable = true;
-    #   enableFishIntegration = true;
+    #   enableBashIntegration = true;
+    #   enableZshIntegration = true;
     # };
     pandoc = {
       enable = true;
