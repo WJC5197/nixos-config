@@ -62,6 +62,7 @@
       # '';
       # ".ideavimrc".source = ./ideavimrc;
       ".m2/settings.xml".source = ./mvn.xml;
+      ".rsync".source = ./rsync;
       ".xmonad/lib".source = ./xmonad/lib;
       ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
     };
