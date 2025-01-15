@@ -60,7 +60,7 @@
       #   org.gradle.console=verbose
       #   org.gradle.daemon.idletimeout=3600000
       # '';
-      # ".ideavimrc".source = ./ideavimrc;
+      ".ideavimrc".source = ./ideavimrc;
       ".m2/settings.xml".source = ./mvn.xml;
       ".rsync".source = ./rsync;
       ".xmonad/lib".source = ./xmonad/lib;
@@ -123,10 +123,12 @@
       gimp
       glew
       glfw
+      # glib
       goldendict-ng
       gopls
       gparted
       gperf
+      # gping
       gradle
       graphviz
       gsl
@@ -152,6 +154,7 @@
       maven
       meson
       metals
+      moonlight-qt
       musescore
       nil
       ninja
@@ -162,6 +165,7 @@
       plantuml
       pkg-config
       python3
+      ra-multiplex
       racket-minimal
       rclone
       redshift
@@ -180,13 +184,15 @@
       speedtest-cli
       styluslabs-write
       tailscale
-      tdlib
+      tailwindcss
+      # tdlib
       tokei
       tor-browser
       translate-shell
       typescript
       typescript-language-server
       typst
+      unrar
       volume
       w3m
       wineWowPackages.full
@@ -247,11 +253,10 @@
       package = pkgs.emacs30;
       extraPackages = epkgs: [
         # pkgs.emacsPackages.jinx
-        # epkgs.mu4e
         # pkgs.emacsPackages.rime
         # pkgs.librime
-        # pkgs.mu
         # epkgs.tdlib
+        epkgs.mu4e
         epkgs.pdf-tools
         epkgs.telega
         epkgs.vterm
@@ -294,6 +299,9 @@
     };
     mpv = {
       enable = true;
+    };
+    mu = {
+      enable = true;  
     };
     obs-studio = {
       enable = true;

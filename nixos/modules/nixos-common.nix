@@ -18,6 +18,7 @@
       openssl
       p7zip
       ripgrep
+      tree
       wget
       unzip
     ];

@@ -67,6 +67,13 @@
       enable = true;
       logEvents = true;
     };
+    apache-kafka = {
+      enable = true;
+      settings = {
+        "log.dirs" = ["/var/lib/apache-kafka"];
+        "zookeeper.connect" = "localhost:2181";
+      };
+    };
     displayManager = {
       ly = {
         enable = true;
@@ -74,6 +81,9 @@
           animation = "matrix";
         };
       };
+    };
+    nginx = {
+      enable = true;
     };
     mysql = {
       enable = true;
@@ -91,6 +101,17 @@
     printing = {
       enable = true;
     };
+    rabbitmq = {
+      enable = true;
+    };
+    redis.servers = {
+      logos = {
+        enable = true;
+      };
+    };
+    sunshine = {
+      enable = true;  
+    };
     # Enable the X11 windowing system.
     xserver = {
       enable = true;
@@ -102,12 +123,22 @@
       };
       # videoDrivers = [ "intel" ];
     };
+    zookeeper = {
+      enable = true;  
+    };
   };
 
   systemd.services = {
+    apache-kafka.wantedBy = lib.mkForce [ ];
+    docker.wantedBy = lib.mkForce [ ];
     libvirtd.wantedBy = lib.mkForce [ ];
     libvirt-guests.wantedBy = lib.mkForce [ ];
     mysql.wantedBy = lib.mkForce [ ];
+    nginx.wantedBy = lib.mkForce [ ];
+    rabbitmq.wantedBy = lib.mkForce [ ];
+    redis-logos.wantedBy = lib.mkForce [ ];
+    sunshine.wantedBy = lib.mkForce [ ];
+    zookeeper.wantedBy = lib.mkForce [ ];
   };
 
   system.stateVersion = "24.11"; # Did you read the comment?
@@ -116,6 +147,9 @@
   time.timeZone = "Asia/Shanghai";
 
   virtualisation = {
+    docker = {
+      enable = true;  
+    };
     libvirtd = {
       enable = true;
       qemu = {
