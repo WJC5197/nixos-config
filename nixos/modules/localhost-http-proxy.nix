@@ -1,4 +1,13 @@
 {
+  pkgs,
+  ...
+}:
+{
+  environment = {
+    systemPackages = with pkgs; [
+      clash-meta
+    ];
+  };
   networking = {
     proxy = {
       default = "http://localhost:7890";

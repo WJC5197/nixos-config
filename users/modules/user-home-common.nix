@@ -3,19 +3,23 @@
   ...
 }:
 {
-  fonts = {
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-        emoji = [ "Noto Sans Emoji" ];
-        monospace = [ "Iosevka" ];
-        sansSerif = [ "Noto Sans" ];
-        serif = [ "Noto Serif" ];
-      };
-    };
-  };
   home = {
     packages = with pkgs; [
+      brightnessctl
+      btop
+      fastfetch
+      fd
+      gdb
+      google-chrome
+      mupdf
+      nixfmt-rfc-style
+      p7zip
+      ripgrep
+      tree
+      # wget
+      unzip
+      volume
+      xdg-utils
     ];
     sessionVariables = {
       EDITOR = "nvim";
@@ -39,8 +43,28 @@
       };
     };
   };
+  programs = {
+    feh = {
+      enable = true;  
+    };
+    git = {
+      delta = {
+        enable = true;  
+      };
+      enable = true;
+    };
+    mpv = {
+      enable = true;  
+    };
+    neovim = {
+      enable = true;
+    };
+  };
   xdg = {
     enable = true;
+    # portal = {
+    #   enable = true;  
+    # };
     userDirs = {
       enable = true;
     };

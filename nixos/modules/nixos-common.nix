@@ -6,29 +6,39 @@
 {
   environment = {
     systemPackages = with pkgs; [
-      btop
-      clash-meta
-      fastfetch
-      fd
+      autoconf
+      automake
+      bison
       file
+      flex
+      gnum4
       gnumake
-      google-chrome
+      groff
+      # inetutils # too old
       libgccjit
-      nixfmt-rfc-style
-      openssl
-      p7zip
-      ripgrep
-      tree
-      wget
-      unzip
+      # openssl
+      pkg-config
     ];
+    wordlist = {
+      enable = true;
+    };
   };
+
   fonts = {
+    enableDefaultPackages = false;
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        emoji = [ "Noto Sans Emoji" ];
+        monospace = [ "Iosevka" ];
+        sansSerif = [ "Noto Sans" ];
+        serif = [ "Noto Serif" ];
+      };
+    };
     fontDir = {
       enable = true;
       decompressFonts = true;
     };
-    enableDefaultPackages = false;
     packages = with pkgs; [
       iosevka
       nerd-fonts.symbols-only
@@ -63,6 +73,10 @@
     # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
   };
   nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+    };
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -75,9 +89,6 @@
     };
   };
   programs = {
-    git = {
-      enable = true;
-    };
     gnupg = {
       agent = {
         enable = true;
@@ -87,9 +98,6 @@
       };
     };
     less = {
-      enable = true;
-    };
-    neovim = {
       enable = true;
     };
   };

@@ -21,6 +21,32 @@
   # release notes.
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  accounts = {
+    email.accounts.wjc5197 = {
+      address = "wjc5197@gmail.com";
+      flavor = "gmail.com";
+      gpg = {
+        key = "28ED85EC47C3E1A84FA9A52B5F919C9DB9BADDD4";
+        signByDefault = true;
+      };
+      imap = {
+        host = "imap.gmail.com";
+      };
+      mbsync = {
+        enable = true;
+      };
+      msmtp = {
+        enable = true;
+      };
+      mu = {
+        enable = true;
+      };
+      passwordCommand = "gpg -d -q ~/.secrets/gmail.gpg";
+      primary = true;
+      realName = "WJC5197";
+      userName = "wjc5197@gmail.com";
+    };
+  };
 
   dconf = {
     enable = true;
@@ -63,6 +89,7 @@
       ".ideavimrc".source = ./ideavimrc;
       ".m2/settings.xml".source = ./mvn.xml;
       ".rsync".source = ./rsync;
+      ".secrets".source = ./secrets;
       ".xmonad/lib".source = ./xmonad/lib;
       ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
     };
@@ -84,7 +111,9 @@
       #   echo "Hello, ${config.home.username}!"
       # '')
 
+      # archivebox # insecure
       agda
+      aider-chat
       anki-bin
       (aspellWithDicts (
         dicts: with dicts; [
@@ -117,14 +146,20 @@
       # dmd
       dotnet-sdk
       dunst
+      espeak
+      evtest
       ffmpeg-full
       firejail
+      fontforge
+      gh
       ghc
+      ghostscript
       gimp
       glew
       glfw
       # glib
       goldendict-ng
+      # google-cloud-sdk
       gopls
       gparted
       gperf
@@ -133,6 +168,7 @@
       graphviz
       gsl
       gtest
+      guile
       # haskellPackages.ghcup
       haskell-language-server
       hledger
@@ -142,14 +178,18 @@
       inkscape
       jdt-language-server
       jetbrains.idea-community-bin
+      jq
       kdePackages.full
+      # kdePackages.okular
       krita
-      libreoffice-fresh
+      leiningen
       libllvm
+      libreoffice-fresh
       # libsForQt5.full
+      # lldb
       # llvmPackages.libcxx
       # llvmPackages.libcxxClang
-      mariadb
+      # mariadb
       # mesa
       maven
       meson
@@ -162,8 +202,8 @@
       nyxt
       onboard
       onedrive
+      # openai-whisper-cpp
       plantuml
-      pkg-config
       python3
       ra-multiplex
       racket-minimal
@@ -177,6 +217,7 @@
       sbcl
       scala
       scrcpy
+      screenkey
       scrot
       SDL2
       shotcut
@@ -193,13 +234,15 @@
       typescript-language-server
       typst
       unrar
-      volume
+      # volume
       w3m
       wineWowPackages.full
       wolfram-engine
-      xautolock
+      # xautolock
+      xdg-ninja
       xmake
       xss-lock
+      # yq
       zeal
       zig
       zls
@@ -232,6 +275,7 @@
     sessionVariables = {
       CM_HISTLENGTH = 31;
       CM_LAUNCHER = "rofi";
+      TERMINAL = "kitty";
     };
     stateVersion = "24.11"; # Please read the comment before changing.
     username = "wjc5197";
@@ -297,11 +341,20 @@
       };
       extraConfig = builtins.readFile ./kitty.conf;
     };
+    mbsync = {
+      enable = true;
+    };
     mpv = {
       enable = true;
     };
+    msmtp = {
+      enable = true;
+    };
     mu = {
-      enable = true;  
+      enable = true;
+    };
+    neovim = {
+      enable = true;
     };
     obs-studio = {
       enable = true;
@@ -388,13 +441,16 @@
     };
   };
 
-  qt = {
-    enable = true;
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt6;
-    };
-  };
+  # qt = {
+  #   enable = true;
+  #   platformTheme = {
+  #     name = "gnome";
+  #   };
+  #   style = {
+  #     name = "adwaita-dark";
+  #     package = pkgs.adwaita-qt;
+  #   };
+  # };
 
   wayland = {
     windowManager = {
@@ -421,6 +477,20 @@
       "redshift/redshift.conf".source = ./redshift.conf;
       # "sway/config".source = pkgs.lib.mkOverride 10 "/home/<user>/dotfiles/sway/config"
     };
+    # desktopEntries = {
+    #   mupdf = {
+    #     name = "Mupdf";
+    #     genericName = "Web Browser";
+    #     exec = "mupdf-x11 %f";
+    #     terminal = false;
+    #     categories = [
+    #       "Application"
+    #     ];
+    #     mimeType = [
+    #       "application/pdf"
+    #     ];
+    #   };
+    # };
   };
 
   xresources = {

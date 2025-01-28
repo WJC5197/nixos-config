@@ -20,22 +20,17 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
-      brightnessctl
-      ghostscript
+      docker-compose
+      lazydocker
       linuxHeaders
       linux-manual
       lm_sensors
       man-pages
       man-pages-posix
       wayland-utils
-      unzip
       vulkan-tools
       xsel
-      xdg-utils
     ];
-    wordlist = {
-      enable = true;
-    };
   };
 
   imports = [
@@ -47,6 +42,9 @@
   # started in user sessions.
   # programs.mtr.enable = true;
   programs = {
+    steam = {
+      enable = true;  
+    };
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
@@ -60,8 +58,6 @@
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
   services = {
     acpid = {
       enable = true;
@@ -74,6 +70,10 @@
         "zookeeper.connect" = "localhost:2181";
       };
     };
+    # aria2 = {
+    #   enable = true;   
+    #   rpcSecretFile = /run/secrets/aria2-rpc-token.txt;
+    # };
     displayManager = {
       ly = {
         enable = true;
@@ -81,6 +81,20 @@
           animation = "matrix";
         };
       };
+    };
+    distccd = {
+      enable = true;  
+    };
+    fwupd = {
+      enable = true;
+    };
+    geth = {
+      logos = {
+        enable = true;  
+      }; 
+    };
+    guix = {
+      enable = true;  
     };
     nginx = {
       enable = true;
@@ -98,6 +112,10 @@
         };
       };
     };
+    ollama = {
+      enable = true;  
+    };
+    # Enable CUPS to print documents.
     printing = {
       enable = true;
     };
@@ -112,6 +130,14 @@
     sunshine = {
       enable = true;  
     };
+    # touchegg = {
+    #   enable = false;
+    # };
+    # tts.servers = {
+    #   logos = {
+    #     enable = true;  
+    #   };
+    # };
     # Enable the X11 windowing system.
     xserver = {
       enable = true;
@@ -130,11 +156,16 @@
 
   systemd.services = {
     apache-kafka.wantedBy = lib.mkForce [ ];
+    distccd.wantedBy = lib.mkForce [ ];
     docker.wantedBy = lib.mkForce [ ];
+    fwupd.wantedBy = lib.mkForce [ ]; 
+    geth-logos.wantedBy = lib.mkForce [ ];
+    guix-daemon.wantedBy = lib.mkForce [ ];
     libvirtd.wantedBy = lib.mkForce [ ];
     libvirt-guests.wantedBy = lib.mkForce [ ];
     mysql.wantedBy = lib.mkForce [ ];
     nginx.wantedBy = lib.mkForce [ ];
+    ollama.wantedBy = lib.mkForce [ ];
     rabbitmq.wantedBy = lib.mkForce [ ];
     redis-logos.wantedBy = lib.mkForce [ ];
     sunshine.wantedBy = lib.mkForce [ ];

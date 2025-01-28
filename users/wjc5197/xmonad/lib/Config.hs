@@ -241,9 +241,10 @@ logosStartupHook = do
   spawnOnce "dunst -conf ~/.config/dunst/dunstrc"
   spawnOnce "feh --bg-fill --no-fehbg ~/.wallpapers/haskell-xmonad.png"
   spawnOnce "redshift -c ~/.config/redshift/redshift.conf"
-  spawnOnce "xautolock -time 15 -locker \"loginctl lock-session $XDG_SESSION_ID\""
+  -- spawnOnce "xautolock -time 30 -locker \"loginctl lock-session $XDG_SESSION_ID\""
+  spawnOnce "xset s off"
+  spawnOnce "xset dpms 0 0 1800" -- 30 mins
   spawnOnce "xss-lock -- betterlockscreen -l dim &"
-
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
 -- use the defaults defined in xmonad/XMonad/Config.hs
