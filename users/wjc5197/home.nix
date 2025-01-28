@@ -41,7 +41,7 @@
       mu = {
         enable = true;
       };
-      passwordCommand = "gpg -d -q ~/.secrets/gmail.gpg";
+      passwordCommand = "gpg -d -q ~/.secrets/imap-gmail.gpg";
       primary = true;
       realName = "WJC5197";
       userName = "wjc5197@gmail.com";
