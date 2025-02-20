@@ -231,6 +231,7 @@
       tokei
       tor-browser
       translate-shell
+      tree-sitter-grammars.tree-sitter-typst
       typescript
       typescript-language-server
       typst
