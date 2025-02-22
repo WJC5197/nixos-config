@@ -86,7 +86,7 @@
       #   org.gradle.console=verbose
       #   org.gradle.daemon.idletimeout=3600000
       # '';
-      ".authinfo.gpg".source = ./secrets/authinfo.gpg;
+      ".authinfo".source = ./secrets/authinfo;
       ".ideavimrc".source = ./ideavimrc;
       ".m2/settings.xml".source = ./mvn.xml;
       ".rsync".source = ./rsync;
