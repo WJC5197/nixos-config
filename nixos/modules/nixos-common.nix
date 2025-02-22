@@ -17,6 +17,7 @@
       # inetutils # too old
       libgccjit
       # openssl
+      pinentry-all
       pkg-config
     ];
     wordlist = {
@@ -40,6 +41,7 @@
       decompressFonts = true;
     };
     packages = with pkgs; [
+      corefonts
       iosevka
       nerd-fonts.symbols-only
       noto-fonts

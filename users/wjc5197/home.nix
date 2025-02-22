@@ -231,7 +231,6 @@
       tokei
       tor-browser
       translate-shell
-      tree-sitter-grammars.tree-sitter-typst
       typescript
       typescript-language-server
       typst
@@ -305,6 +304,7 @@
         epkgs.mu4e
         epkgs.pdf-tools
         epkgs.telega
+        epkgs.treesit-grammars.with-all-grammars
         epkgs.vterm
         # epkgs.w3m
       ];
