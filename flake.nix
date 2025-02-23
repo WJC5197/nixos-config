@@ -40,6 +40,7 @@
           dpi = 169;
           hardware = "surface-pro-8";
           extraModules = [
+            ./nixos/modules/docker-host-firewall.nix
             ./nixos/modules/libvirt-host-firewall.nix
             ./nixos/modules/localhost-http-proxy.nix
           ];

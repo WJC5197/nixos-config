@@ -66,7 +66,7 @@
     apache-kafka = {
       enable = true;
       settings = {
-        "log.dirs" = ["/var/lib/apache-kafka"];
+        "log.dirs" = [ "/var/lib/apache-kafka" ];
         "zookeeper.connect" = "localhost:2181";
       };
     };
@@ -76,7 +76,11 @@
     # };
     clamav = {
       daemon.enable = true;
-      updater.enable = true;
+      updater = {
+        enable = true;
+        frequency = 3;
+        interval = "weekly";
+      };
     };
     displayManager = {
       ly = {
@@ -87,18 +91,18 @@
       };
     };
     distccd = {
-      enable = true;  
+      enable = true;
     };
     fwupd = {
       enable = true;
     };
     geth = {
       logos = {
-        enable = true;  
-      }; 
+        enable = true;
+      };
     };
     guix = {
-      enable = true;  
+      enable = true;
     };
     nginx = {
       enable = true;
@@ -117,7 +121,7 @@
       };
     };
     ollama = {
-      enable = true;  
+      enable = true;
     };
     # Enable CUPS to print documents.
     printing = {
@@ -132,14 +136,14 @@
       };
     };
     sunshine = {
-      enable = true;  
+      enable = true;
     };
     # touchegg = {
     #   enable = false;
     # };
     # tts.servers = {
     #   logos = {
-    #     enable = true;  
+    #     enable = true;
     #   };
     # };
     # Enable the X11 windowing system.
@@ -154,15 +158,16 @@
       # videoDrivers = [ "intel" ];
     };
     zookeeper = {
-      enable = true;  
+      enable = true;
     };
   };
 
   systemd.services = {
     apache-kafka.wantedBy = lib.mkForce [ ];
+    clamav-daemon.wantedBy = lib.mkForce [ ];
     distccd.wantedBy = lib.mkForce [ ];
     docker.wantedBy = lib.mkForce [ ];
-    fwupd.wantedBy = lib.mkForce [ ]; 
+    fwupd.wantedBy = lib.mkForce [ ];
     geth-logos.wantedBy = lib.mkForce [ ];
     guix-daemon.wantedBy = lib.mkForce [ ];
     libvirtd.wantedBy = lib.mkForce [ ];
@@ -183,7 +188,7 @@
 
   virtualisation = {
     docker = {
-      enable = true;  
+      enable = true;
     };
     libvirtd = {
       enable = true;
