@@ -17,7 +17,7 @@
       # inetutils # too old
       libgccjit
       # openssl
-      pinentry-all
+      # pinentry-all
       pkg-config
     ];
     wordlist = {
@@ -47,6 +47,7 @@
       noto-fonts
       noto-fonts-emoji
       sarasa-gothic
+      source-han-sans
       symbola
     ];
   };

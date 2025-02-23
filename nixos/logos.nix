@@ -43,7 +43,7 @@
   # programs.mtr.enable = true;
   programs = {
     steam = {
-      enable = true;  
+      enable = true;
     };
     sway = {
       enable = true;
@@ -71,9 +71,13 @@
       };
     };
     # aria2 = {
-    #   enable = true;   
+    #   enable = true;
     #   rpcSecretFile = /run/secrets/aria2-rpc-token.txt;
     # };
+    clamav = {
+      daemon.enable = true;
+      updater.enable = true;
+    };
     displayManager = {
       ly = {
         enable = true;

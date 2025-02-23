@@ -187,6 +187,7 @@
       libllvm
       libreoffice-fresh
       # libsForQt5.full
+      # livecaptions
       # lldb
       # llvmPackages.libcxx
       # llvmPackages.libcxxClang
@@ -301,6 +302,7 @@
         # pkgs.emacsPackages.rime
         # pkgs.librime
         # epkgs.tdlib
+        epkgs.copilot
         epkgs.mu4e
         epkgs.pdf-tools
         epkgs.telega
