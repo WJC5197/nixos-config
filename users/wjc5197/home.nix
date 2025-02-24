@@ -147,6 +147,7 @@
       # dmd
       dotnet-sdk
       dunst
+      emacscl
       espeak
       evtest
       ffmpeg-full
@@ -235,6 +236,7 @@
       typescript
       typescript-language-server
       typst
+      typstyle
       unrar
       # volume
       w3m
@@ -277,6 +279,7 @@
     sessionVariables = {
       CM_HISTLENGTH = 31;
       CM_LAUNCHER = "rofi";
+      DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet";
       TERMINAL = "kitty";
     };
     stateVersion = "24.11"; # Please read the comment before changing.
@@ -482,20 +485,47 @@
       "redshift/redshift.conf".source = ./redshift.conf;
       # "sway/config".source = pkgs.lib.mkOverride 10 "/home/<user>/dotfiles/sway/config"
     };
-    # desktopEntries = {
-    #   mupdf = {
-    #     name = "Mupdf";
-    #     genericName = "Web Browser";
-    #     exec = "mupdf-x11 %f";
-    #     terminal = false;
-    #     categories = [
-    #       "Application"
-    #     ];
-    #     mimeType = [
-    #       "application/pdf"
-    #     ];
-    #   };
-    # };
+    desktopEntries = {
+      #   mupdf = {
+      #     name = "Mupdf";
+      #     genericName = "Web Browser";
+      #     exec = "mupdf-x11 %f";
+      #     terminal = false;
+      #     categories = [
+      #       "Application"
+      #     ];
+      #     mimeType = [
+      #       "application/pdf"
+      #     ];
+      #   };
+      emacsclient-mail = {
+        categories = [
+          "Network"
+          "Email"
+        ];
+        comment = "GNU Emacs is an extensible, customizable text editor - and more";
+        exec = "${pkgs.emacscl}/bin/emacscl.sh %u";
+        icon = "emacs";
+        name = "Emacs (Mail)";
+        mimeType = [ "x-scheme-handler/mailto" ];
+        # noDisplay = true;
+        terminal = false;
+        type = "Application";
+      };
+    };
+    mimeApps = {
+      defaultApplications = {
+        "application/pdf" = [ "mupdf.desktop" ];
+        "inode/directory" = [ "yazi.desktop" ];
+        "text/html" = [ "google-chrome.desktop" ];
+        "x-scheme-handler/about" = [ "google-chrome.desktop" ];
+        "x-scheme-handler/http" = [ "google-chrome.desktop" ];
+        "x-scheme-handler/https" = [ "google-chrome.desktop" ];
+        "x-scheme-handler/mailto" = [ "emacsclient-mail.desktop" ];
+        "x-scheme-handler/unknown" = [ "google-chrome.desktop" ];
+      };
+      enable = true;
+    };
   };
 
   xresources = {

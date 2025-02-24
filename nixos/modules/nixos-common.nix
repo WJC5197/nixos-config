@@ -48,6 +48,7 @@
       noto-fonts-emoji
       sarasa-gothic
       source-han-sans
+      source-han-serif
       symbola
     ];
   };
