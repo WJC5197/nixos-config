@@ -1,5 +1,5 @@
 {
-  emacs,
+  emacs30,
   lib,
   makeWrapper,
   stdenv,
@@ -10,20 +10,20 @@ let
 in
 stdenv.mkDerivation rec {
   buildInputs = [
-    emacs
+    emacs30
   ];
   installPhase = ''
     mkdir -p $out/bin
-    install -Dm755 emacscl.sh $out/bin/emacascl.sh
-    wrapProgram $out/bin/emacscl.sh --prefix PATH : '${makeBinPath buildInputs}'
+    install -Dm755 emacsclient.sh $out/bin/emacsclient.sh
+    wrapProgram $out/bin/emacsclient.sh --prefix PATH : '${makeBinPath buildInputs}'
   '';
-  name = "emacscl";
+  name = "emacsclient";
   nativeBuildInputs = [
     makeWrapper
   ];
-  src = ./emacscl.sh;
+  src = ./emacsclient.sh;
   unpackCmd = ''
     mkdir src
-    cp $curSrc src/emacscl.sh
+    cp $curSrc src/emacsclient.sh
   '';
 }

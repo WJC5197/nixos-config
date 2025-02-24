@@ -147,7 +147,7 @@
       # dmd
       dotnet-sdk
       dunst
-      emacscl
+      emacsclient
       espeak
       evtest
       ffmpeg-full
@@ -504,7 +504,7 @@
           "Email"
         ];
         comment = "GNU Emacs is an extensible, customizable text editor - and more";
-        exec = "${pkgs.emacscl}/bin/emacscl.sh %u";
+        exec = "${pkgs.emacsclient}/bin/emacsclient.sh %u";
         icon = "emacs";
         name = "Emacs (Mail)";
         mimeType = [ "x-scheme-handler/mailto" ];
