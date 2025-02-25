@@ -91,6 +91,7 @@
       ".m2/settings.xml".source = ./mvn.xml;
       ".rsync".source = ./rsync;
       ".secrets".source = ./secrets;
+      ".wallpapers".source = ./wallpapers;
       ".xmonad/lib".source = ./xmonad/lib;
       ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
     };
