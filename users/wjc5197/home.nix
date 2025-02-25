@@ -230,6 +230,7 @@
       tailscale
       tailwindcss
       # tdlib
+      tinymist
       tokei
       tor-browser
       translate-shell
@@ -505,10 +506,11 @@
         ];
         comment = "GNU Emacs is an extensible, customizable text editor - and more";
         exec = "${pkgs.emacsclient}/bin/emacsclient.sh %u";
+        genericName = "Text Editor";
         icon = "emacs";
         name = "Emacs (Mail)";
         mimeType = [ "x-scheme-handler/mailto" ];
-        # noDisplay = true;
+        noDisplay = true;
         terminal = false;
         type = "Application";
       };
