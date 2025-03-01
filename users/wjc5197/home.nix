@@ -87,6 +87,7 @@
       #   org.gradle.daemon.idletimeout=3600000
       # '';
       ".authinfo".source = ./secrets/authinfo;
+      ".blog/placeholder".source = ./placeholder;
       ".ideavimrc".source = ./ideavimrc;
       ".m2/settings.xml".source = ./mvn.xml;
       ".rsync".source = ./rsync;
@@ -116,6 +117,7 @@
       # archivebox # insecure
       agda
       aider-chat
+      airshipper
       anki-bin
       (aspellWithDicts (
         dicts: with dicts; [
@@ -133,9 +135,10 @@
       cabal-install
       cachix
       ccache
-      # clash-verge-rev
       clang
       clang-tools
+      # clash-nyanpasu
+      # clash-verge-rev
       clipmenu
       clojure
       clojure-lsp
@@ -177,10 +180,12 @@
       hledger
       hledger-web
       html-tidy
+      hugo
       imagemagick
       inkscape
       jdt-language-server
       jetbrains.idea-community-bin
+      # joplin-desktop
       jq
       kdePackages.full
       # kdePackages.okular
@@ -223,7 +228,7 @@
       scrcpy
       screenkey
       scrot
-      SDL2
+      # SDL2
       shotcut
       solaar
       speedtest-cli

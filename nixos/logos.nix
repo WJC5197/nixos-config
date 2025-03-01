@@ -123,6 +123,9 @@
     ollama = {
       enable = true;
     };
+    # picom = {
+    #   enable = true;
+    # };
     # Enable CUPS to print documents.
     printing = {
       enable = true;

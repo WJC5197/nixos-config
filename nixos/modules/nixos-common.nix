@@ -99,6 +99,10 @@
         enableBrowserSocket = true;
         enableExtraSocket = true;
         enableSSHSupport = true;
+        # settings = {
+        #   default-cache-ttl = 3600;
+        #   max-cache-ttl = 14400;
+        # };
       };
     };
     less = {
