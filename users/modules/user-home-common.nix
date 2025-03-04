@@ -1,8 +1,10 @@
 {
+  config,
   pkgs,
   ...
 }:
 {
+  accounts.email.maildirBasePath = "${config.home.homeDirectory}/mail";
   home = {
     packages = with pkgs; [
       brightnessctl
@@ -45,16 +47,16 @@
   };
   programs = {
     feh = {
-      enable = true;  
+      enable = true;
     };
     git = {
       delta = {
-        enable = true;  
+        enable = true;
       };
       enable = true;
     };
     mpv = {
-      enable = true;  
+      enable = true;
     };
     neovim = {
       enable = true;
@@ -63,10 +65,18 @@
   xdg = {
     enable = true;
     # portal = {
-    #   enable = true;  
+    #   enable = true;
     # };
     userDirs = {
+      desktop = "${config.home.homeDirectory}/desktop";
+      documents = "${config.home.homeDirectory}/documents";
+      download = "${config.home.homeDirectory}/downloads";
       enable = true;
+      music = "${config.home.homeDirectory}/music";
+      pictures = "${config.home.homeDirectory}/pictures";
+      publicShare = "${config.home.homeDirectory}/public";
+      templates = "${config.home.homeDirectory}/templates";
+      videos = "${config.home.homeDirectory}/videos";
     };
   };
 }

@@ -126,6 +126,9 @@
     # picom = {
     #   enable = true;
     # };
+    postgresql = {
+      enable = true;
+    };
     # Enable CUPS to print documents.
     printing = {
       enable = true;
@@ -178,6 +181,7 @@
     mysql.wantedBy = lib.mkForce [ ];
     nginx.wantedBy = lib.mkForce [ ];
     ollama.wantedBy = lib.mkForce [ ];
+    postgresql.wantedBy = lib.mkForce [ ];
     rabbitmq.wantedBy = lib.mkForce [ ];
     redis-logos.wantedBy = lib.mkForce [ ];
     sunshine.wantedBy = lib.mkForce [ ];

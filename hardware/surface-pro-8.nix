@@ -94,12 +94,12 @@
       settings = {
         battery = {
           energy_performance_preference = "power";
-          governor = "powersave";  
+          governor = "powersave";
           turbo = "auto";
         };
         charger = {
           energy_performance_preference = "balance_power";
-          governor = "powersave";  
+          governor = "powersave";
           turbo = "auto";
         };
       };
@@ -115,7 +115,7 @@
       };
     };
     tlp = {
-      enable = true;  
+      enable = true;
     };
   };
 
@@ -125,7 +125,7 @@
       size = 16 * 1024;
     }
   ];
-  
+
   virtualisation.docker.storageDriver = "btrfs";
   # powerManagement = {
   #   cpuFreqGovernor = "powersave";

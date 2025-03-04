@@ -3,6 +3,7 @@
 .emacs.d/init.el
 .emacs.d/early-init.el
 .nixos/
-Documents/
-Pkgs/
-Projs/
+documents/
+pictures/
+pkgs/
+projs/

@@ -22,29 +22,31 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   accounts = {
-    email.accounts.wjc5197 = {
-      address = "wjc5197@gmail.com";
-      flavor = "gmail.com";
-      gpg = {
-        key = "28ED85EC47C3E1A84FA9A52B5F919C9DB9BADDD4";
-        signByDefault = true;
+    email = {
+      accounts.wjc5197 = {
+        address = "wjc5197@gmail.com";
+        flavor = "gmail.com";
+        gpg = {
+          key = "28ED85EC47C3E1A84FA9A52B5F919C9DB9BADDD4";
+          signByDefault = true;
+        };
+        imap = {
+          host = "imap.gmail.com";
+        };
+        mbsync = {
+          enable = true;
+        };
+        msmtp = {
+          enable = true;
+        };
+        mu = {
+          enable = true;
+        };
+        passwordCommand = "gpg -d -q ~/.secrets/gmail-imap.gpg";
+        primary = true;
+        realName = "WJC5197";
+        userName = "wjc5197@gmail.com";
       };
-      imap = {
-        host = "imap.gmail.com";
-      };
-      mbsync = {
-        enable = true;
-      };
-      msmtp = {
-        enable = true;
-      };
-      mu = {
-        enable = true;
-      };
-      passwordCommand = "gpg -d -q ~/.secrets/gmail-imap.gpg";
-      primary = true;
-      realName = "WJC5197";
-      userName = "wjc5197@gmail.com";
     };
   };
 
@@ -87,9 +89,10 @@
       #   org.gradle.daemon.idletimeout=3600000
       # '';
       ".authinfo".source = ./secrets/authinfo;
-      ".blog/placeholder".source = ./placeholder;
+      # ".blog/placeholder".source = ./placeholder;
       ".ideavimrc".source = ./ideavimrc;
       ".m2/settings.xml".source = ./mvn.xml;
+      ".npmrc".source = ./npmrc;
       ".rsync".source = ./rsync;
       ".secrets".source = ./secrets;
       ".wallpapers".source = ./wallpapers;
@@ -132,7 +135,7 @@
       bleachbit
       blender
       blueman
-      cabal-install
+      # cabal-install
       cachix
       ccache
       clang
@@ -208,6 +211,7 @@
       nil
       ninja
       nodejs
+      nodePackages.prettier
       nyxt
       onboard
       onedrive
@@ -253,6 +257,7 @@
       xdg-ninja
       xmake
       xss-lock
+      # yamlfmt
       # yq
       zeal
       zig
@@ -287,6 +292,7 @@
       CM_HISTLENGTH = 31;
       CM_LAUNCHER = "rofi";
       DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet";
+      MUHOME = "${config.home.homeDirectory}/maildir";
       TERMINAL = "kitty";
     };
     stateVersion = "24.11"; # Please read the comment before changing.

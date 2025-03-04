@@ -58,7 +58,7 @@ logosKeys conf@(XConfig {XMonad.modMask = modm}) =
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf),
       -- launch scort
-      ((modm .|. shiftMask, xK_s), spawn "scrot -s '%Y%m%d-%H%M%S.png' -e 'mv $f ~/Pictures/screenshots && feh ~/Pictures/screenshots/$f' -z"),
+      ((modm .|. shiftMask, xK_s), spawn "scrot -s '%Y%m%d-%H%M%S.png' -e 'mv $f ~/pictures/screenshots && feh ~/pictures/screenshots/$f' -z"),
       -- launch rofi
       ((modm, xK_p), spawn "rofi -show drun"),
       -- launch clipmenu
