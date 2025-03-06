@@ -104,6 +104,9 @@
     guix = {
       enable = true;
     };
+    jenkins = {
+      enable = true;
+    };
     nginx = {
       enable = true;
     };
@@ -176,6 +179,7 @@
     fwupd.wantedBy = lib.mkForce [ ];
     geth-logos.wantedBy = lib.mkForce [ ];
     guix-daemon.wantedBy = lib.mkForce [ ];
+    jenkins.wantedBy = lib.mkForce [ ];
     libvirtd.wantedBy = lib.mkForce [ ];
     libvirt-guests.wantedBy = lib.mkForce [ ];
     mysql.wantedBy = lib.mkForce [ ];

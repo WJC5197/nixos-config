@@ -36,7 +36,12 @@
     "/data" = {
       device = "/dev/disk/by-label/Data";
       fsType = "ntfs-3g";
-      options = [ "rw" ];
+      options = [
+        "dmask=0022"
+        "fmask=0133"
+        "permissions"
+        "rw"
+      ];
     };
 
     "/efi" = {

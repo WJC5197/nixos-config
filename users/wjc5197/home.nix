@@ -497,6 +497,7 @@
       "fcitx5/conf/clipboard.conf".source = ./fcitx5-clipboard.conf;
       "redshift/redshift.conf".source = ./redshift.conf;
       # "sway/config".source = pkgs.lib.mkOverride 10 "/home/<user>/dotfiles/sway/config"
+      "Zeal/Zeal.conf".source = ./zeal.conf;
     };
     desktopEntries = {
       #   mupdf = {
