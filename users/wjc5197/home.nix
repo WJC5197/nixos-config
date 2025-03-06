@@ -90,6 +90,9 @@
       # '';
       ".authinfo".source = ./secrets/authinfo;
       # ".blog/placeholder".source = ./placeholder;
+      ".emacs.d/early-init.el".source = ./emacs/early-init.el;
+      ".emacs.d/init.el".source = ./emacs/init.el;
+      ".emacs.d/lisp".source = ./emacs/lisp;
       ".ideavimrc".source = ./ideavimrc;
       ".m2/settings.xml".source = ./mvn.xml;
       ".npmrc".source = ./npmrc;
