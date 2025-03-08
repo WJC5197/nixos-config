@@ -183,6 +183,7 @@
       hledger
       hledger-web
       html-tidy
+      http-server
       hugo
       imagemagick
       inkscape
@@ -216,6 +217,7 @@
       onboard
       onedrive
       # openai-whisper-cpp
+      opera
       plantuml
       python3
       ra-multiplex
