@@ -117,11 +117,11 @@
       #   echo "Hello, ${config.home.username}!"
       # '')
 
-      # archivebox # insecure
       agda
       aider-chat
       airshipper
       anki-bin
+      # archivebox # insecure
       (aspellWithDicts (
         dicts: with dicts; [
           en
