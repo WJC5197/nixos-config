@@ -42,7 +42,7 @@
         mu = {
           enable = true;
         };
-        passwordCommand = "gpg -d -q ~/.secrets/gmail-imap.gpg";
+        passwordCommand = "auth-get-pwd.sh 'imap.gmail.com' 'WJC5197@gmail.com'";
         primary = true;
         realName = "WJC5197";
         userName = "wjc5197@gmail.com";
@@ -130,6 +130,7 @@
         ]
       ))
       audacity
+      auth-get-pwd
       bear
       betterlockscreen
       bleachbit
