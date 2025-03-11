@@ -160,6 +160,7 @@
       ffmpeg-full
       firejail
       fontforge
+      freecad
       gh
       ghc
       ghostscript
@@ -238,6 +239,7 @@
       shotcut
       solaar
       speedtest-cli
+      spotify-custom
       styluslabs-write
       tailscale
       tailwindcss
