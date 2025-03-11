@@ -89,7 +89,8 @@
       #   org.gradle.daemon.idletimeout=3600000
       # '';
       # ".authinfo".source = ./secrets/authinfo;
-      ".netrc".source = ./secrets/netrc;
+      ".authinfo.gpg".source = ./secrets/authinfo.gpg;
+      # ".netrc".source = ./secrets/netrc;
       # ".blog/placeholder".source = ./placeholder;
       ".ideavimrc".source = ./ideavimrc;
       ".m2/settings.xml".source = ./mvn.xml;
