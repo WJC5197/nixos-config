@@ -346,7 +346,7 @@
     git = {
       enable = true;
       extraConfig = {
-        credential.helper = "netrc -d -v";
+        credential.helper = "netrc";
       };
       userEmail = "wjc5197@gmail.com";
       userName = "wjc5197";

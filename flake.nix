@@ -36,7 +36,22 @@
     in
     {
       nixosConfigurations =
-        mkSystem "logos-morph" {
+        mkSystem "logos-cascade" {
+          hardware = "laptop";
+          extraModules = [
+            ./nixos/modules/docker-host-firewall.nix
+            ./nixos/modules/libvirt-host-firewall.nix
+            ./nixos/modules/localhost-http-proxy.nix
+          ];
+          nixos = "logos";
+          system = "x86_64-linux";
+          users = [
+            "monad"
+            "root"
+            "wjc5197"
+          ];
+        }
+        // mkSystem "logos-morph" {
           dpi = 169;
           hardware = "surface-pro-8";
           extraModules = [
