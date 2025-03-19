@@ -3,8 +3,7 @@
   stdenv,
   lib,
   librime,
-  rimeDataBuildHook,
-  rime-prelude,
+  makeSetupHook,
   # regex to select schemas
   # by default all schemas are included
   schemaRegex ? "^.*$",
@@ -25,6 +24,10 @@ let
     };
     date = "2025-03-11";
   };
+  rimeDataBuildHook = makeSetupHook {
+    name = "rime-data-build-hook.sh";
+    substitutions = { };
+  } ./rime-data-build-hook.sh;
 in
 stdenv.mkDerivation {
   inherit (rime-ice) pname version src;
@@ -34,8 +37,6 @@ stdenv.mkDerivation {
     rimeDataBuildHook
     yq-go
   ];
-
-  buildInputs = [ rime-prelude ];
 
   postPatch = ''
     keep=()
@@ -121,8 +122,6 @@ stdenv.mkDerivation {
 
     runHook postInstall
   '';
-
-  passthru.rimeDependencies = [ rime-prelude ];
 
   meta = with lib; {
     homepage = "https://github.com/iDvel/rime-ice";
