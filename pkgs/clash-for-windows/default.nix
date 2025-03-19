@@ -20,12 +20,21 @@
 let
   clash-for-windows = {
     pname = "clash-for-windows";
-    version = "0.20.21";
+    version = "0.20.39";
     src = fetchurl {
-      url = "https://github.com/Fndroid/clash_for_windows_pkg/releases/download/0.20.21/Clash.for.Windows-0.20.21-x64-linux.tar.gz";
-      sha256 = "d5a85185f3bd04ed07d5ecffe495eab295b8758cf07b96aec1972c3e45009521";
+      url = "https://archive.org/download/clash_for_windows_pkg/Clash.for.Windows-0.20.39-x64-linux.tar.gz";
+      sha256 = "sha256-4HxeNYvOmVEcEDJiug1tAWfHAkLy5ognsJ96KRjUPcA=";
     };
   };
+  clash-for-windows-icon = {
+    pname = "clash-for-windows-icon";
+    version = "0";
+    src = fetchurl {
+      url = "https://web.archive.org/web/20211210004725if_/https://docs.cfw.lbyczf.com/favicon.ico";
+      sha256 = "1zd453mwrlc9kafagyvmj9i8vd5a4akp9srbsy9mxa48x77ckqp2";
+    };
+  };
+  icon = "${clash-for-windows-icon.src}[4]";
   desktopItem = makeDesktopItem {
     name = "clash-for-windows";
     desktopName = "Clash for Windows";
@@ -34,7 +43,6 @@ let
     exec = "cfw";
     categories = [ "Network" ];
   };
-  # icon = "${sources.clash-for-windows-icon.src}[4]";
 in
 stdenv.mkDerivation rec {
   inherit (clash-for-windows) pname version src;
@@ -81,10 +89,9 @@ stdenv.mkDerivation rec {
       size="''${s}x''${s}"
       echo "create icon \"$size\""
       mkdir -p "$icon_dir/$size/apps"
+      ${imagemagick}/bin/convert -resize "$size" "${icon}" "$icon_dir/$size/apps/clash-for-windows.png"
     done
   '';
-
-  # ${imagemagick}/bin/convert -resize "$size" "${icon}" "$icon_dir/$size/apps/clash-for-windows.png"
 
   meta = with lib; {
     homepage = "https://github.com/Fndroid/clash_for_windows_pkg";

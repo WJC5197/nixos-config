@@ -35,7 +35,12 @@
       enabled = "fcitx5";
       fcitx5 = {
         addons = with pkgs; [
-          fcitx5-rime
+          (fcitx5-rime.override {
+            rimeDataPkgs = with pkgs; [
+              rime-data
+              rime-ice
+            ];
+          })
           fcitx5-chinese-addons
           fcitx5-with-addons
           fcitx5-configtool
