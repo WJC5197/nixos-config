@@ -1,5 +1,5 @@
 {
-  emacs30,
+  emacs-git,
   lib,
   makeWrapper,
   stdenv,
@@ -10,7 +10,7 @@ let
 in
 stdenv.mkDerivation rec {
   buildInputs = [
-    emacs30
+    emacs-git
   ];
   installPhase = ''
     mkdir -p $out/bin

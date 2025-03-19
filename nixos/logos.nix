@@ -74,6 +74,10 @@
     #   enable = true;
     #   rpcSecretFile = /run/secrets/aria2-rpc-token.txt;
     # };
+    # service caddy doesn't provide binary
+    # caddy = {
+    #   enable = true;
+    # };
     clamav = {
       daemon.enable = true;
       updater = {
@@ -107,9 +111,9 @@
     jenkins = {
       enable = true;
     };
-    nginx = {
-      enable = true;
-    };
+    # nginx = {
+    #   enable = true;
+    # };
     mysql = {
       enable = true;
       package = pkgs.mariadb;
@@ -173,6 +177,7 @@
 
   systemd.services = {
     apache-kafka.wantedBy = lib.mkForce [ ];
+    # caddy.wantedBy = lib.mkForce [ ];
     clamav-daemon.wantedBy = lib.mkForce [ ];
     distccd.wantedBy = lib.mkForce [ ];
     docker.wantedBy = lib.mkForce [ ];
@@ -182,8 +187,9 @@
     jenkins.wantedBy = lib.mkForce [ ];
     libvirtd.wantedBy = lib.mkForce [ ];
     libvirt-guests.wantedBy = lib.mkForce [ ];
+    logrotate-checkconf.wantedBy = lib.mkForce [ ];
     mysql.wantedBy = lib.mkForce [ ];
-    nginx.wantedBy = lib.mkForce [ ];
+    # nginx.wantedBy = lib.mkForce [ ];
     ollama.wantedBy = lib.mkForce [ ];
     postgresql.wantedBy = lib.mkForce [ ];
     rabbitmq.wantedBy = lib.mkForce [ ];
@@ -217,6 +223,9 @@
         runAsRoot = true;
         swtpm.enable = true;
       };
+    };
+    lxc = {
+      enable = true;
     };
     spiceUSBRedirection.enable = true;
   };

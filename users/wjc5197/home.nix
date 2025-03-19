@@ -138,9 +138,11 @@
       blueman
       # cabal-install
       cachix
+      caddy
       ccache
       clang
       clang-tools
+      clash-for-windows
       # clash-nyanpasu
       # clash-verge-rev
       clipmenu
@@ -205,10 +207,11 @@
       # llvmPackages.libcxx
       # llvmPackages.libcxxClang
       # mariadb
-      # mesa
       maven
+      # mesa
       meson
       metals
+      mkcert
       moonlight-qt
       musescore
       nil
@@ -220,6 +223,7 @@
       onedrive
       # openai-whisper-cpp
       opera
+      ormolu
       plantuml
       python3
       ra-multiplex
@@ -233,6 +237,7 @@
       # rust-analyzer
       sbcl
       scala
+      scalafmt
       scrcpy
       screenkey
       scrot
@@ -297,7 +302,7 @@
       CM_HISTLENGTH = 31;
       CM_LAUNCHER = "rofi";
       DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet";
-      MUHOME = "${config.home.homeDirectory}/maildir";
+      # MUHOME = "${config.home.homeDirectory}/maildir";
       TERMINAL = "kitty";
     };
     stateVersion = "24.11"; # Please read the comment before changing.
@@ -317,7 +322,7 @@
     };
     emacs = {
       enable = true;
-      package = pkgs.emacs30;
+      package = pkgs.emacs-git;
       extraPackages = epkgs: [
         # pkgs.emacsPackages.jinx
         # pkgs.emacsPackages.rime
