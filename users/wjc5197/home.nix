@@ -512,6 +512,9 @@
       # "sway/config".source = pkgs.lib.mkOverride 10 "/home/<user>/dotfiles/sway/config"
       "Zeal/Zeal.conf".source = ./zeal.conf;
     };
+    dataFile = {
+      "fcitx5/rime/default.custom.yaml".source = ./rime.yaml;
+    };
     desktopEntries = {
       #   mupdf = {
       #     name = "Mupdf";
