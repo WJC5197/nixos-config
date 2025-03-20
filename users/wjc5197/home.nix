@@ -310,6 +310,7 @@
   };
 
   imports = [
+    ../modules/lazyvim.nix
     ../modules/user-home-common.nix
   ];
 
@@ -329,6 +330,7 @@
         # pkgs.librime
         # epkgs.tdlib
         epkgs.copilot
+        # epkgs.ement
         epkgs.mu4e
         epkgs.pdf-tools
         epkgs.telega
@@ -505,16 +507,19 @@
   };
 
   xdg = {
+    # ~/.config
     configFile = {
       "dunst/dunstrc".source = ./dunstrc;
+      "fcitx/rime/default.custom.yaml".source = ./rime.yaml;
       "fcitx5/conf/clipboard.conf".source = ./fcitx5-clipboard.conf;
+      "nvim/lua".source = ./nvim;
       "redshift/redshift.conf".source = ./redshift.conf;
       # "sway/config".source = pkgs.lib.mkOverride 10 "/home/<user>/dotfiles/sway/config"
       "Zeal/Zeal.conf".source = ./zeal.conf;
     };
-    dataFile = {
-      "fcitx5/rime/default.custom.yaml".source = ./rime.yaml;
-    };
+    # ~/.local/share
+    # dataFile = {
+    # };
     desktopEntries = {
       #   mupdf = {
       #     name = "Mupdf";
