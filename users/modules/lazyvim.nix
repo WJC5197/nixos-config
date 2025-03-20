@@ -21,8 +21,8 @@
     extraLuaConfig =
       let
         plugins = with pkgs.vimPlugins; [
-          # LazyVim
           LazyVim
+          blink-cmp
           bufferline-nvim
           cmp-buffer
           cmp-nvim-lsp
@@ -54,6 +54,7 @@
           nvim-web-devicons
           persistence-nvim
           plenary-nvim
+          snacks-nvim
           telescope-fzf-native-nvim
           telescope-nvim
           todo-comments-nvim
