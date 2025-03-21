@@ -30,10 +30,10 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        emoji = [ "Noto Sans Emoji" ];
-        monospace = [ "Iosevka" ];
-        sansSerif = [ "Noto Sans" ];
-        serif = [ "Noto Serif" ];
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [ "Iosevka" "Sarasa Mono SC" ];
+        sansSerif = [ "Sarasa Gothic SC" ];
+        serif = [ "Sarasa Mono Slab SC" ];
       };
     };
     fontDir = {
@@ -43,8 +43,12 @@
     packages = with pkgs; [
       corefonts
       iosevka
+      jetbrains-mono
+      lxgw-wenkai
       nerd-fonts.symbols-only
       noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       noto-fonts-emoji
       sarasa-gothic
       source-han-sans

@@ -148,6 +148,13 @@
         enable = true;
       };
     };
+    stirling-pdf = {
+      enable = true;
+      environment = {
+        INSTALL_BOOK_AND_ADVANCED_HTML_OPS = "true";
+        SERVER_PORT = 8070;
+      };
+    };
     sunshine = {
       enable = true;
     };
@@ -194,6 +201,7 @@
     postgresql.wantedBy = lib.mkForce [ ];
     rabbitmq.wantedBy = lib.mkForce [ ];
     redis-logos.wantedBy = lib.mkForce [ ];
+    stirling-pdf.wantedBy = lib.mkForce [ ];
     sunshine.wantedBy = lib.mkForce [ ];
     zookeeper.wantedBy = lib.mkForce [ ];
   };

@@ -243,6 +243,7 @@
       scrot
       # SDL2
       shotcut
+      sigil
       solaar
       speedtest-cli
       spotify-custom
