@@ -5,6 +5,7 @@ final: prev: {
   clash-for-windows = final.callPackage ./clash-for-windows { };
   # davinci-resolve-custom = final.callPackage ./davinci-resolve-custom { };
   emacsclient = final.callPackage ./emacsclient { };
+  lceda-pro = final.callPackage ./lceda-pro { };
   rime-ice = final.callPackage ./rime-ice { };
   spotify-custom = final.callPackage ./spotify-custom { };
   volume = final.callPackage ./volume { };

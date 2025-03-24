@@ -15,9 +15,6 @@
     ./modules/nixos-common.nix
   ];
   programs = {
-    fish = {
-      enable = true;
-    };
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
@@ -29,7 +26,7 @@
       sddm = {
         enable = true;
         wayland = {
-          enable = true;  
+          enable = true;
         };
       };
     };

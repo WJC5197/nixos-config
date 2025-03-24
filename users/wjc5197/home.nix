@@ -100,181 +100,195 @@
       ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
     };
     homeDirectory = "/home/wjc5197";
-    packages = with pkgs; [
-      # # Adds the 'hello' command to your environment. It prints a friendly
-      # # "Hello, world!" when run.
-      # pkgs.hello
-      # # It is sometimes useful to fine-tune packages, for example, by applying
-      # # overrides. You can do that directly here, just don't forget the
-      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-      # # fonts?
-      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+    packages =
+      with pkgs;
+      [
+        # # Adds the 'hello' command to your environment. It prints a friendly
+        # # "Hello, world!" when run.
+        # pkgs.hello
+        # # It is sometimes useful to fine-tune packages, for example, by applying
+        # # overrides. You can do that directly here, just don't forget the
+        # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+        # # fonts?
+        # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-      # # You can also create simple shell scripts directly inside your
-      # # configuration. For example, this adds a command 'my-hello' to your
-      # # environment:
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
+        # # You can also create simple shell scripts directly inside your
+        # # configuration. For example, this adds a command 'my-hello' to your
+        # # environment:
+        # (pkgs.writeShellScriptBin "my-hello" ''
+        #   echo "Hello, ${config.home.username}!"
+        # '')
 
-      agda
-      aider-chat
-      airshipper
-      anki-bin
-      # archivebox # insecure
-      (aspellWithDicts (
-        dicts: with dicts; [
-          en
-          en-computers
-          en-science
-        ]
-      ))
-      audacity
-      auth-get-pwd
-      bear
-      betterlockscreen
-      bleachbit
-      blender
-      blueman
-      # cabal-install
-      cachix
-      caddy
-      ccache
-      clang
-      clang-tools
-      clash-for-windows
-      # clash-nyanpasu
-      # clash-verge-rev
-      clipmenu
-      clojure
-      clojure-lsp
-      cmake
-      code-cursor
-      dbeaver-bin
-      dconf
-      deno
-      discord
-      # dmd
-      dotnet-sdk
-      dunst
-      emacsclient
-      espeak
-      evtest
-      ffmpeg-full
-      firejail
-      fontforge
-      freecad
-      gh
-      ghc
-      ghostscript
-      gimp
-      glew
-      glfw
-      # glib
-      goldendict-ng
-      # google-cloud-sdk
-      gopls
-      gparted
-      gperf
-      # gping
-      gradle
-      graphviz
-      gsl
-      gtest
-      guile
-      # haskellPackages.ghcup
-      haskell-language-server
-      hledger
-      hledger-web
-      html-tidy
-      http-server
-      hugo
-      imagemagick
-      inkscape
-      jdt-language-server
-      jetbrains.idea-community-bin
-      # joplin-desktop
-      jq
-      kdePackages.full
-      # kdePackages.okular
-      krita
-      leiningen
-      libllvm
-      libreoffice-fresh
-      # libsForQt5.full
-      # livecaptions
-      # lldb
-      # llvmPackages.libcxx
-      # llvmPackages.libcxxClang
-      # mariadb
-      maven
-      # mesa
-      meson
-      metals
-      mkcert
-      moonlight-qt
-      musescore
-      nil
-      ninja
-      nodejs
-      nodePackages.prettier
-      nyxt
-      onboard
-      onedrive
-      # openai-whisper-cpp
-      opera
-      ormolu
-      plantuml
-      python3
-      ra-multiplex
-      racket-minimal
-      rclone
-      redshift
-      rsync
-      ruff-lsp # python lsp
-      # rustlings
-      rustup
-      # rust-analyzer
-      sbcl
-      scala
-      scalafmt
-      scrcpy
-      screenkey
-      scrot
-      # SDL2
-      shotcut
-      sigil
-      solaar
-      speedtest-cli
-      spotify-custom
-      styluslabs-write
-      tailscale
-      tailwindcss
-      # tdlib
-      tinymist
-      tokei
-      tor-browser
-      translate-shell
-      typescript
-      typescript-language-server
-      typst
-      typstyle
-      unrar
-      # volume
-      w3m
-      wineWowPackages.full
-      wolfram-engine
-      # xautolock
-      xdg-ninja
-      xmake
-      xss-lock
-      # yamlfmt
-      # yq
-      zeal
-      zig
-      zls
-      zotero
-    ];
+        agda
+        aider-chat
+        airshipper
+        anki-bin
+        # archivebox # insecure
+        (aspellWithDicts (
+          dicts: with dicts; [
+            en
+            en-computers
+            en-science
+          ]
+        ))
+        audacity
+        auth-get-pwd
+        bear
+        betterlockscreen
+        bleachbit
+        blender
+        blueman
+        # cabal-install
+        cachix
+        caddy
+        ccache
+        clang
+        clang-tools
+        clash-for-windows
+        # clash-nyanpasu
+        # clash-verge-rev
+        clipmenu
+        clojure
+        clojure-lsp
+        cmake
+        code-cursor
+        dbeaver-bin
+        dconf
+        deno
+        discord
+        # dmd
+        dotnet-sdk
+        dunst
+        emacsclient
+        espeak
+        evtest
+        ffmpeg-full
+        firejail
+        fontforge
+        freecad
+        ghc
+        ghostscript
+        gimp
+        glew
+        glfw
+        # glib
+        goldendict-ng
+        # google-cloud-sdk
+        gopls
+        gparted
+        gperf
+        # gping
+        gradle
+        graphviz
+        gsl
+        gtest
+        gtkwave
+        guile
+        # haskellPackages.ghcup
+        haskell-language-server
+        hledger
+        hledger-web
+        html-tidy
+        http-server
+        hugo
+        imagemagick
+        inkscape
+        jdt-language-server
+        # joplin-desktop
+        jq
+        kdePackages.full
+        # kdePackages.okular
+        krita
+        lceda-pro
+        leiningen
+        libllvm
+        libreoffice-fresh
+        # libsForQt5.full
+        # livecaptions
+        # lldb
+        # llvmPackages.libcxx
+        # llvmPackages.libcxxClang
+        # mariadb
+        maven
+        # mesa
+        meson
+        metals
+        mkcert
+        monolith
+        moonlight-qt
+        musescore
+        nil
+        ninja
+        nodejs
+        nyxt
+        onboard
+        onedrive
+        # openai-whisper-cpp
+        opera
+        ormolu
+        plantuml
+        python3
+        ra-multiplex
+        racket-minimal
+        rclone
+        redshift
+        rsync
+        ruff-lsp # python lsp
+        # rustlings
+        rustup
+        # rust-analyzer
+        sbcl
+        scala
+        scalafmt
+        scrcpy
+        screenkey
+        scrot
+        # SDL2
+        shotcut
+        sigil
+        solaar
+        speedtest-cli
+        spotify-custom
+        sql-formatter
+        # sqls
+        styluslabs-write
+        # subtitleedit
+        tailscale
+        tailwindcss
+        # tdlib
+        termshark
+        tinymist
+        tokei
+        tor-browser
+        translate-shell
+        typescript
+        typescript-language-server
+        typst
+        typstyle
+        unrar
+        verilator
+        # volume
+        w3m
+        wineWowPackages.full
+        wolfram-engine
+        # xautolock
+        xdg-ninja
+        xmake
+        xss-lock
+        # yamlfmt
+        # yq
+        zeal
+        zig
+        zls
+        zotero
+      ]
+      ++ (with pkgs.jetbrains; [
+        idea-community-bin
+        rust-rover
+      ])
+      ++ (with pkgs.nodePackages; [
+        prettier
+      ]);
 
     pointerCursor = {
       gtk.enable = true;
@@ -358,6 +372,9 @@
       };
       userEmail = "wjc5197@gmail.com";
       userName = "wjc5197";
+    };
+    gh = {
+      enable = true;
     };
     go = {
       enable = true;
