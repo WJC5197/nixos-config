@@ -28,7 +28,14 @@
   makeWrapper,
 }:
 let
-  source-url = "https://image.lceda.cn/files/lceda-pro-linux-x64-2.2.27.1.zip";
+  lceda-pro = {
+    pname = "lceda-pro";
+    version = "2.2.27.1";
+    src = fetchurl {
+      url = "https://image.lceda.cn/files/lceda-pro-linux-x64-2.2.27.1.zip";
+      hash = "sha256-ejMfevAjMl9PN+UpJd2/TCF0ZaktQR+PRCgFE3pz59E=";
+    };
+  };
   lceda-pro-runtime-xorg = with xorg; [
     libX11
     libXt
@@ -74,48 +81,45 @@ let
   ] ++ lceda-pro-runtime-xorg;
 in
 stdenv.mkDerivation {
-    pname = "lceda-pro";
-    version = "2.2.27.1";
+  inherit (lceda-pro) pname version src;
 
-    src = fetchurl {
-      url = source-url;
-      hash = "sha256-ejMfevAjMl9PN+UpJd2/TCF0ZaktQR+PRCgFE3pz59E=";
-    };
+  nativeBuildInputs = [
+    unzip
+    makeWrapper
+  ];
 
-    nativeBuildInputs = [ unzip makeWrapper ];
+  unpackPhase = ''
+    runHook preUnpack
 
-    unpackPhase = ''
-      runHook preUnpack
+    unzip $src
 
-      unzip $src
+    runHook postUnpack
+  '';
 
-      runHook postUnpack
-    '';
+  installPhase = ''
+    runHook preInstall
 
-    installPhase = ''
-      runHook preInstall
+    mkdir -p $out/bin
+    cp -r . $out/opt
 
-      mkdir -p $out/bin
-      cp -r . $out/opt
+    chmod +x $out/opt/lceda-pro/lceda-pro
+    chmod +x $out/opt/lceda-pro/chrome-sandbox
+    chmod +x $out/opt/lceda-pro/chrome_crashpad_handler
 
-      chmod +x $out/opt/lceda-pro/lceda-pro
-      chmod +x $out/opt/lceda-pro/chrome-sandbox
-      chmod +x $out/opt/lceda-pro/chrome_crashpad_handler
+    wrapProgram $out/opt/lceda-pro/lceda-pro \
+      --set LD_LIBRARY_PATH ${lib.makeLibraryPath lceda-pro-runtime}
+    ln -s $out/opt/lceda-pro/lceda-pro $out/bin/lceda-pro
 
-      wrapProgram $out/opt/lceda-pro/lceda-pro \
-        --set LD_LIBRARY_PATH ${lib.makeLibraryPath lceda-pro-runtime}
-      ln -s $out/opt/lceda-pro/lceda-pro $out/bin/lceda-pro
+    runHook postInstall
+  '';
 
-      runHook postInstall
-    '';
-
-    meta = with lib; {
-      description = "A browser-based, user-friendly, powerful Electronics Design Automation tool";
-      homepage = "https://lceda.cn/";
-      license = licenses.unfree;
-      platforms = [
-        "x86_64-linux"
-      ];
-      mainProgram = "lceda-pro";
-    };
+  meta = with lib; {
+    description = "A browser-based, user-friendly, powerful Electronics Design Automation tool";
+    homepage = "https://lceda.cn/";
+    license = licenses.unfree;
+    platforms = [
+      "x86_64-linux"
+    ];
+    mainProgram = "lceda-pro";
+  };
 }

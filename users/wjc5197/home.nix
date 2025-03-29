@@ -196,10 +196,12 @@
         jdt-language-server
         # joplin-desktop
         jq
+        just
         kdePackages.full
         # kdePackages.okular
+        kicad
         krita
-        lceda-pro
+        # lceda-pro
         leiningen
         libllvm
         libreoffice-fresh
@@ -246,6 +248,7 @@
         # SDL2
         shotcut
         sigil
+        signal-cli
         solaar
         speedtest-cli
         spotify-custom
@@ -257,7 +260,9 @@
         tailwindcss
         # tdlib
         termshark
+        thefuck
         tinymist
+        tldr
         tokei
         tor-browser
         translate-shell
@@ -434,15 +439,7 @@
       enable = true;
       extraPackages = tpkgs: {
         inherit (tpkgs)
-          amsmath
-          capt-of
-          dvipng # for preview and export as html
-          dvisvgm
-          hyperref
-          mylatexformat
-          scheme-basic
-          ulem
-          wrapfig
+          scheme-full
           ;
       };
     };
@@ -451,6 +448,7 @@
     };
     vscode = {
       enable = true;
+      package = pkgs.vscode.fhs;
     };
     xmobar = {
       enable = true;

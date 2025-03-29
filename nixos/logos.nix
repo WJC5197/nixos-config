@@ -42,6 +42,9 @@
   # started in user sessions.
   # programs.mtr.enable = true;
   programs = {
+    nix-ld = {
+      enable = true;
+    };
     steam = {
       enable = true;
     };
@@ -109,6 +112,9 @@
       enable = true;
     };
     jenkins = {
+      enable = true;
+    };
+    k3s = {
       enable = true;
     };
     # nginx = {
@@ -192,6 +198,7 @@
     geth-logos.wantedBy = lib.mkForce [ ];
     guix-daemon.wantedBy = lib.mkForce [ ];
     jenkins.wantedBy = lib.mkForce [ ];
+    k3s.wantedBy = lib.mkForce [ ];
     libvirtd.wantedBy = lib.mkForce [ ];
     libvirt-guests.wantedBy = lib.mkForce [ ];
     logrotate-checkconf.wantedBy = lib.mkForce [ ];
