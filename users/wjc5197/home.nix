@@ -172,6 +172,7 @@
         glew
         glfw
         # glib
+        gnuplot
         goldendict-ng
         # google-cloud-sdk
         gopls
@@ -196,6 +197,7 @@
         jdt-language-server
         # joplin-desktop
         jq
+        julia
         just
         kdePackages.full
         # kdePackages.okular
@@ -210,6 +212,7 @@
         # lldb
         # llvmPackages.libcxx
         # llvmPackages.libcxxClang
+        lmms
         # mariadb
         maven
         # mesa
@@ -245,7 +248,6 @@
         scrcpy
         screenkey
         scrot
-        # SDL2
         shotcut
         sigil
         signal-cli
@@ -344,18 +346,24 @@
     emacs = {
       enable = true;
       package = pkgs.emacs-git;
-      extraPackages = epkgs: [
+      # xwidget webkitgtk upstream is flawed
+      # package = (pkgs.emacs-git.override {
+      #   withGTK3 = true;
+      #   withImageMagick = true;
+      #   withXwidgets = true;
+      # });
+      extraPackages = epkgs: with epkgs; [
         # pkgs.emacsPackages.jinx
         # pkgs.emacsPackages.rime
         # pkgs.librime
         # epkgs.tdlib
-        epkgs.copilot
+        copilot
         # epkgs.ement
-        epkgs.mu4e
-        epkgs.pdf-tools
-        epkgs.telega
-        epkgs.treesit-grammars.with-all-grammars
-        epkgs.vterm
+        mu4e
+        pdf-tools
+        telega
+        treesit-grammars.with-all-grammars
+        vterm
         # epkgs.w3m
       ];
     };
@@ -368,6 +376,7 @@
     fzf = {
       enable = true;
       enableBashIntegration = true;
+      enableFishIntegration = true;
       enableZshIntegration = true;
     };
     git = {
@@ -398,6 +407,9 @@
         enable_audio_bell = false;
       };
       extraConfig = builtins.readFile ./kitty.conf;
+    };
+    lazygit = {
+      enable = true;
     };
     mbsync = {
       enable = true;
@@ -459,6 +471,7 @@
     yazi = {
       enable = true;
       enableBashIntegration = true;
+      enableFishIntegration = true;
       enableZshIntegration = true;
     };
     zoxide = {
@@ -534,8 +547,9 @@
       "Zeal/Zeal.conf".source = ./zeal.conf;
     };
     # ~/.local/share
-    # dataFile = {
-    # };
+    dataFile = {
+      "fcitx5/rime/default.custom.yaml".source = ./rime.yaml;
+    };
     desktopEntries = {
       #   mupdf = {
       #     name = "Mupdf";

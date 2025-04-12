@@ -20,6 +20,7 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+      bpftrace
       docker-compose
       lazydocker
       linuxHeaders
@@ -98,6 +99,9 @@
       };
     };
     distccd = {
+      enable = true;
+    };
+    elasticsearch = {
       enable = true;
     };
     fwupd = {
@@ -194,6 +198,7 @@
     clamav-daemon.wantedBy = lib.mkForce [ ];
     distccd.wantedBy = lib.mkForce [ ];
     docker.wantedBy = lib.mkForce [ ];
+    elasticsearch.wantedBy = lib.mkForce [ ];
     fwupd.wantedBy = lib.mkForce [ ];
     geth-logos.wantedBy = lib.mkForce [ ];
     guix-daemon.wantedBy = lib.mkForce [ ];

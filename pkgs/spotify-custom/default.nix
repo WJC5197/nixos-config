@@ -1,3 +1,4 @@
+# https://github.com/oskardotglobal/.dotfiles/blob/nix/overlays/spotx.nix
 { pkgs, ... }:
 let
   spotx = pkgs.fetchurl {

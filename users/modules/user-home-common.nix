@@ -4,6 +4,7 @@
   ...
 }:
 {
+  # mu init -m "mail"
   accounts.email.maildirBasePath = "${config.home.homeDirectory}/mail";
   home = {
     packages = with pkgs; [

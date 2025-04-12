@@ -127,7 +127,7 @@
       enable = true;
       keyboards.default.settings = {
         main = {
-          capslock = "esc";
+          capslock = "overload(control, esc)";
           esc = "capslock";
         };
       };

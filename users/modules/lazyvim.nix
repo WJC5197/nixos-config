@@ -1,3 +1,4 @@
+# https://github.com/LazyVim/LazyVim/discussions/1972
 {
   lib,
   pkgs,
