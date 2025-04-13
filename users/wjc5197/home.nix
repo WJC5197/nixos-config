@@ -98,6 +98,8 @@
       ".wallpapers".source = ./wallpapers;
       ".xmonad/lib".source = ./xmonad/lib;
       ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
+      ".zotero/zotero/profiles.ini".source = ./zotero/profiles.ini;
+      ".zotero/zotero/wjc5197/user.js".source = ./zotero/user.js;
     };
     homeDirectory = "/home/wjc5197";
     packages =
