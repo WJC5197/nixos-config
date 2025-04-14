@@ -34,6 +34,15 @@
     ];
   };
 
+  fonts = {
+    packages = with pkgs; [
+      jetbrains-mono
+      lxgw-wenkai
+      maple-mono.NF
+      sf-pro
+    ];
+  };
+
   imports = [
     ./modules/nixos-common.nix
     ./modules/zsh

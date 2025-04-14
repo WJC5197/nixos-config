@@ -43,8 +43,6 @@
     packages = with pkgs; [
       corefonts
       iosevka
-      jetbrains-mono
-      lxgw-wenkai
       nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-cjk-sans
