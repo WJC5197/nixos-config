@@ -24,7 +24,7 @@ let
     if isDarwin then inputs.home-manager.darwinModules else inputs.home-manager.nixosModules;
   nixosConfig = ../nixos/${nixos}.nix;
   systemFunc = if isDarwin then inputs.darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
-  usersHomeConfig = nixpkgs.lib.genAttrs users (user: import ../users/${user}/home.nix {inherit dpi;});
+  usersHomeConfig = nixpkgs.lib.genAttrs users (user: import ../users/${user}/home.nix);
   usersNixOSConfig = builtins.map (user: ../users/${user}/${
     if isDarwin then "darwin" else "nixos"
   }.nix) users;
@@ -54,6 +54,9 @@ in
         home-manager.home-manager
         {
           home-manager.backupFileExtension = "nixbak";
+          home-manager.extraSpecialArgs = {
+            inherit dpi inputs system;
+          };
           home-manager.useGlobalPkgs = true;
           home-manager.users = usersHomeConfig;
           home-manager.useUserPackages = true;

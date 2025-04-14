@@ -38,7 +38,8 @@
     packages = with pkgs; [
       jetbrains-mono
       lxgw-wenkai
-      maple-mono.NF
+      maple-mono-NF
+      monolisa
       sf-pro
     ];
   };

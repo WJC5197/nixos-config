@@ -1,10 +1,10 @@
 {
-  dpi,
-}:
-{
   config,
+  dpi,
+  inputs,
   lib,
   pkgs,
+  system,
   ...
 }:
 
