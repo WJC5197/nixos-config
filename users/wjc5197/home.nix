@@ -4,10 +4,13 @@
   inputs,
   lib,
   pkgs,
-  system,
+  # system,
   ...
 }:
 
+let
+  system = pkgs.system;
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -146,13 +149,12 @@
         ccache
         clang
         clang-tools
-        clash-for-windows
         # clash-nyanpasu
         # clash-verge-rev
         clipmenu
         clojure
         clojure-lsp
-        cmake
+        # cmake # set cmake as nativeBuildInputs in proj
         code-cursor
         dbeaver-bin
         dconf
@@ -162,6 +164,7 @@
         dotnet-sdk
         dunst
         emacsclient
+        emanote
         espeak
         evtest
         ffmpeg-full
@@ -174,6 +177,7 @@
         glew
         glfw
         # glib
+        gnuapl
         gnuplot
         goldendict-ng
         # google-cloud-sdk
@@ -205,7 +209,6 @@
         # kdePackages.okular
         kicad
         krita
-        # lceda-pro
         leiningen
         libllvm
         libreoffice-fresh
@@ -215,6 +218,7 @@
         # llvmPackages.libcxx
         # llvmPackages.libcxxClang
         lmms
+        luanti
         # mariadb
         maven
         # mesa
@@ -234,6 +238,7 @@
         opera
         ormolu
         plantuml
+        prismlauncher
         python3
         ra-multiplex
         racket-minimal
@@ -251,6 +256,7 @@
         screenkey
         scrot
         shotcut
+        showmethekey
         sigil
         signal-cli
         solaar
@@ -297,7 +303,15 @@
       ])
       ++ (with pkgs.nodePackages; [
         prettier
-      ]);
+      ])
+      # specific architecture pkgs, mostly custom pkgs
+      ++ lib.optionals (system == "x86_64-linux") (
+        with pkgs;
+        [
+          clash-for-windows
+          # lceda-pro
+        ]
+      );
 
     pointerCursor = {
       gtk.enable = true;
@@ -354,20 +368,21 @@
       #   withImageMagick = true;
       #   withXwidgets = true;
       # });
-      extraPackages = epkgs: with epkgs; [
-        # pkgs.emacsPackages.jinx
-        # pkgs.emacsPackages.rime
-        # pkgs.librime
-        # epkgs.tdlib
-        copilot
-        # epkgs.ement
-        mu4e
-        pdf-tools
-        telega
-        treesit-grammars.with-all-grammars
-        vterm
-        # epkgs.w3m
-      ];
+      extraPackages =
+        epkgs: with epkgs; [
+          # pkgs.emacsPackages.jinx
+          # pkgs.emacsPackages.rime
+          # pkgs.librime
+          # epkgs.tdlib
+          copilot
+          # epkgs.ement
+          mu4e
+          pdf-tools
+          telega
+          treesit-grammars.with-all-grammars
+          vterm
+          # epkgs.w3m
+        ];
     };
     feh = {
       enable = true;
@@ -384,7 +399,29 @@
     git = {
       enable = true;
       extraConfig = {
+        # although gh as ccredential helper by default, netrc can be used in non github repo
         credential.helper = "netrc";
+        color = {
+          ui = "auto";
+        };
+        init = {
+          defaultBranch = "main";
+        };
+        log = {
+          abbrevCommit = true;
+          follow = true;
+        };
+        pull = {
+          rebase = true;
+        };
+        push = {
+          autoSetupRemote = true;
+          default = "simple";
+          followTags = true;
+        };
+        tag = {
+          sort = "version:refname";
+        };
       };
       userEmail = "wjc5197@gmail.com";
       userName = "wjc5197";

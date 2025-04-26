@@ -41,6 +41,7 @@
       decompressFonts = true;
     };
     packages = with pkgs; [
+      amiri
       corefonts
       iosevka
       nerd-fonts.symbols-only

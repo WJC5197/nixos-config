@@ -55,7 +55,7 @@ in
         {
           home-manager.backupFileExtension = "nixbak";
           home-manager.extraSpecialArgs = {
-            inherit dpi inputs system;
+            inherit dpi inputs;
           };
           home-manager.useGlobalPkgs = true;
           home-manager.users = usersHomeConfig;

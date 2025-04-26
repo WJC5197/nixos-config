@@ -100,6 +100,9 @@
         interval = "weekly";
       };
     };
+    cloudflare-warp = {
+      enable = true;
+    };
     displayManager = {
       ly = {
         enable = true;
@@ -178,6 +181,9 @@
     sunshine = {
       enable = true;
     };
+    tailscale = {
+      enable = true;
+    };
     # touchegg = {
     #   enable = false;
     # };
@@ -206,6 +212,7 @@
     apache-kafka.wantedBy = lib.mkForce [ ];
     # caddy.wantedBy = lib.mkForce [ ];
     clamav-daemon.wantedBy = lib.mkForce [ ];
+    cloudflare-warp.wantedBy = lib.mkForce [ ];
     distccd.wantedBy = lib.mkForce [ ];
     docker.wantedBy = lib.mkForce [ ];
     elasticsearch.wantedBy = lib.mkForce [ ];
@@ -225,6 +232,7 @@
     redis-logos.wantedBy = lib.mkForce [ ];
     stirling-pdf.wantedBy = lib.mkForce [ ];
     sunshine.wantedBy = lib.mkForce [ ];
+    tailscale.wantedBy = lib.mkForce [ ];
     zookeeper.wantedBy = lib.mkForce [ ];
   };
 

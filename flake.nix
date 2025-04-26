@@ -59,6 +59,14 @@
             ./nixos/modules/libvirt-host-firewall.nix
             ./nixos/modules/localhost-http-proxy.nix
             # ./nixos/modules/nix-substituters.nix
+            # (
+            #   { pkgs, ... }:
+            #   {
+            #     home-manager.users.wjc5197 = {
+            #       programs.zsh.enable = true;
+            #     };
+            #   }
+            # )
           ];
           nixos = "logos";
           system = "x86_64-linux";
