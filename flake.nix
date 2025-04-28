@@ -122,6 +122,19 @@
             "root"
             "wjc5197"
           ];
+        }
+        // mkSystem "thoth-pi" {
+          hardware = "raspberry-pi-4";
+          extraModules = [
+            ./nixos/modules/zsh
+            ./nixos/modules/localhost-http-proxy.nix
+          ];
+          nixos = "thoth";
+          system = "aarch64-linux";
+          users = [
+            "monad"
+            "root"
+          ];
         };
     };
 }

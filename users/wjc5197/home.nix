@@ -154,7 +154,7 @@ in
         clipmenu
         clojure
         clojure-lsp
-        # cmake # set cmake as nativeBuildInputs in proj
+        # cmake # set cmake as nativeBuildInputs in project
         code-cursor
         dbeaver-bin
         dconf
@@ -399,7 +399,7 @@ in
     git = {
       enable = true;
       extraConfig = {
-        # although gh as ccredential helper by default, netrc can be used in non github repo
+        # although gh as credential helper by default, netrc can be used in non github repo
         credential.helper = "netrc";
         color = {
           ui = "auto";
