@@ -21,6 +21,7 @@
   environment = {
     systemPackages = with pkgs; [
       bpftrace
+      cpu-x
       docker-compose
       lazydocker
       linuxHeaders

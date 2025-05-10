@@ -218,6 +218,7 @@ in
         # llvmPackages.libcxx
         # llvmPackages.libcxxClang
         lmms
+        lua-language-server
         luanti
         # mariadb
         maven
@@ -261,9 +262,10 @@ in
         signal-cli
         solaar
         speedtest-cli
-        spotify-custom
         sql-formatter
+        spotify-custom
         # sqls
+        stylua
         styluslabs-write
         # subtitleedit
         tailscale
@@ -292,6 +294,7 @@ in
         xss-lock
         # yamlfmt
         # yq
+        z3
         zeal
         zig
         zls
